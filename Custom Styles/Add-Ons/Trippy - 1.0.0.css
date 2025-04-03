@@ -63,17 +63,13 @@ document.head.insertAdjacentHTML("beforeend", `<style>
   }
 }
 @keyframes trippy2 {
-  25%{
-    --trippySuccess: #c60;
-    --trippyWarning: #700;
-  }
   50%{
-    --trippySuccess: #840;
-    --trippyWarning: #400;
+    --trippySuccess: #b86600;
+    --trippyWarning: #600;
   }
-  75%{
-    --trippySuccess: #c60;
-    --trippyWarning: #700;
+  100%{
+    --trippySuccess: #f80;
+    --trippyWarning: #900;
   }
 }
 
@@ -84,8 +80,7 @@ document.head.insertAdjacentHTML("beforeend", `<style>
     --color-primary-dark: var(--trippyColorDark);
     --color-success: var(--trippySuccess);
     --color-warning: var(--trippyWarning);
-    animation: 5s infinite linear;
-    animation-name: trippy, trippy2;
+    animation: trippy 30s infinite linear, trippy2 5s infinite;
 }
 
 </style>`)
