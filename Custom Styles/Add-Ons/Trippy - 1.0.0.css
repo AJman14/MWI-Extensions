@@ -34,6 +34,11 @@ document.head.insertAdjacentHTML("beforeend", `<style>
     initial-value: #900;
     inherits: false;
 }
+@property --trippyMana {
+    syntax: '<color>';
+    initial-value: #ae49ef;
+    inherits: false;
+}
 
 @keyframes trippy {
   16.66% {
@@ -66,10 +71,12 @@ document.head.insertAdjacentHTML("beforeend", `<style>
   50%{
     --trippySuccess: #b86600;
     --trippyWarning: #600;
+    --trippyMana: #7f2bb3;
   }
   100%{
     --trippySuccess: #f80;
     --trippyWarning: #900;
+    --trippyMana: #ae49ef;
   }
 }
 
@@ -80,6 +87,7 @@ document.head.insertAdjacentHTML("beforeend", `<style>
     --color-primary-dark: var(--trippyColorDark);
     --color-success: var(--trippySuccess);
     --color-warning: var(--trippyWarning);
+    --color-manapoints: var(--trippyMana);
     animation: trippy 30s infinite linear, trippy2 5s infinite;
 }
 
