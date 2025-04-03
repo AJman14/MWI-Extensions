@@ -1,0 +1,91 @@
+// ==UserScript==
+// @name        Trippy
+// @match       https://www.milkywayidle.com/game*
+// @grant       none
+// @version     1.0.0
+// @author      AJman14
+// ==/UserScript==
+
+document.head.insertAdjacentHTML("beforeend", `<style>
+
+
+@property --trippyColor {
+    syntax: '<color>';
+    initial-value: #900;
+    inherits: false;
+}
+@property --trippyColorHover {
+    syntax: '<color>';
+    initial-value: #f00;
+    inherits: false;
+}
+@property --trippyColorDark {
+    syntax: '<color>';
+    initial-value: #400;
+    inherits: false;
+}
+@property --trippySuccess {
+    syntax: '<color>';
+    initial-value: #f80;
+    inherits: false;
+}
+@property --trippyWarning {
+    syntax: '<color>';
+    initial-value: #900;
+    inherits: false;
+}
+
+@keyframes trippy {
+  16.66% {
+    --trippyColor: #490;
+    --trippyColorHover: #8f0;
+    --trippyColorDark : #240;
+  }
+  33.33% {
+    --trippyColor: #090;
+    --trippyColorHover: #0f0;
+    --trippyColorDark : #040;
+  }
+  50% {
+    --trippyColor: #094;
+    --trippyColorHover: #0f8;
+    --trippyColorDark : #042;
+  }
+  66.66% {
+    --trippyColor: #009;
+    --trippyColorHover: #00f;
+    --trippyColorDark : #004;
+  }
+  83.33% {
+    --trippyColor: #904;
+    --trippyColorHover: #f08;
+    --trippyColorDark : #204;
+  }
+}
+@keyframes trippy2 {
+  25%{
+    --trippySuccess: #c60;
+    --trippyWarning: #700;
+  }
+  50%{
+    --trippySuccess: #840;
+    --trippyWarning: #400;
+  }
+  75%{
+    --trippySuccess: #c60;
+    --trippyWarning: #700;
+  }
+}
+
+:root {
+    --color-primary: var(--trippyColor);
+    --color-primary-alt: var(--trippyColor);
+    --color-primary-hover: var(--trippyColorHover);
+    --color-primary-dark: var(--trippyColorDark);
+    --color-success: var(--trippySuccess);
+    --color-warning: var(--trippyWarning);
+    animation: 5s infinite linear;
+    animation-name: trippy, trippy2;
+}
+
+</style>`)
