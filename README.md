@@ -2,7 +2,7 @@
 A green theme that also tweaks several items throughout the game. It makes task and skilling/combat items smaller, recolors and adds a glow to moderator and admin icons, etc. Try it out!
 
 ## Stylized Extension Manager
-Styles the buttons to match the game's theme, tweaks the textarea resizing, and allows scrolling if your extension list is too long.
+Styles the buttons of the Extension Manager to match the game's theme, tweaks the textarea resizing, and allows scrolling if your extension list is too long.
 
 ## No-Gather Iron Cow
 Disables the clickability of the gathering navigation items. (Milking, Foraging, and Woodcutting)
