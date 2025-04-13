@@ -9,8 +9,7 @@ Disables the clickability of the gathering navigation items. (Milking, Foraging,
 
 *Note:* This will affect all your characters. In order to have it only affect your NGIC, open a new window and install the extension there. (Top-left) Game > Open Another Game Window
 
-***No-Tutorial Iron Cow**
-Does the same as No-Gather Iron Cow, but also disables the Tasks navigation item and removes the tutorial glow.
+**No-Tutorial Iron Cow** does the same as No-Gather Iron Cow, but also disables the Tasks navigation item and removes the tutorial glow.
 
 ---
 
