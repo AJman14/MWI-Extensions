@@ -87,6 +87,10 @@ waitForElm("[class*='NavigationBar_minorNavigationLinks']").then((elm) => {
         [class*=NavigationBar_navigationLinks]:has(.AJman14-NGIC #coicToggle:checked) [class*=NavigationBar_navigationLink__]:has(svg > use:is([href*=".svg#milking"], [href*=".svg#foraging"], [href*=".svg#woodcutting"], [href*=".svg#cheesesmithing"], [href*=".svg#crafting"], [href*=".svg#tailoring"], [href*=".svg#cooking"], [href*=".svg#brewing"])){
             color: transparent;
         }
+        [class*=NavigationBar_navigationLinks]:has(.AJman14-NGIC #ngicToggle:checked) [class*=NavigationBar_navigationLink__]:has(svg > use:is([href*=".svg#milking"], [href*=".svg#foraging"], [href*=".svg#woodcutting"])) [class*=NavigationBar_boost],
+        [class*=NavigationBar_navigationLinks]:has(.AJman14-NGIC #coicToggle:checked) [class*=NavigationBar_navigationLink__]:has(svg > use:is([href*=".svg#milking"], [href*=".svg#foraging"], [href*=".svg#woodcutting"], [href*=".svg#cheesesmithing"], [href*=".svg#crafting"], [href*=".svg#tailoring"], [href*=".svg#cooking"], [href*=".svg#brewing"])) [class*=NavigationBar_boost]{
+            display: none;
+        }
         [class*=NavigationBar_navigationLinks]:has(.AJman14-NGIC #ngicToggle:checked) [class*=NavigationBar_navigationLink__]:has(svg > use:is([href*=".svg#milking"], [href*=".svg#foraging"], [href*=".svg#woodcutting"])) [class*=NavigationBar_level]:after,
         [class*=NavigationBar_navigationLinks]:has(.AJman14-NGIC #coicToggle:checked) [class*=NavigationBar_navigationLink__]:has(svg > use:is([href*=".svg#milking"], [href*=".svg#foraging"], [href*=".svg#woodcutting"], [href*=".svg#cheesesmithing"], [href*=".svg#crafting"], [href*=".svg#tailoring"], [href*=".svg#cooking"], [href*=".svg#brewing"])) [class*=NavigationBar_level]:after{
             content: "N/A";
