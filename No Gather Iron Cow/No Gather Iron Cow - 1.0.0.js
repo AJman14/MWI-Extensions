@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        No-Gather Iron Cow Toggle
+// @name        No-Gather Iron Cow
 // @match       https://www.milkywayidle.com/game*
 // @grant       none
 // @version     1.0.0
