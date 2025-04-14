@@ -5,11 +5,9 @@ A green theme that also tweaks several items throughout the game. It makes task 
 Styles the buttons of the Extension Manager to match the game's theme, tweaks the textarea resizing, and allows scrolling if your extension list is too long.
 
 ## No-Gather Iron Cow
-Disables the clickability of the gathering navigation items. (Milking, Foraging, and Woodcutting)
+Adds a checkbox toggle directly below the Settings navigation item to disable the clickability of the gathering navigation items. (Milking, Foraging, and Woodcutting)
 
-*Note:* This will affect all your characters. In order to have it only affect your NGIC, open a new window and install the extension there. (Top-left) Game > Open Another Game Window
-
-**No-Tutorial Iron Cow** does the same as No-Gather Iron Cow, but also disables the Tasks navigation item and removes the tutorial glow.
+Turning it on adds another toggle to disable Tasks and the Tutorial glow if you're a No-Tutorial Icon Cow
 
 ---
 
