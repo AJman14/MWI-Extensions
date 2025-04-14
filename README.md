@@ -7,7 +7,7 @@ Styles the buttons of the Extension Manager to match the game's theme, tweaks th
 ## No-Gather Iron Cow
 Adds a checkbox toggle directly below the Settings navigation item to disable the clickability of the gathering navigation items. (Milking, Foraging, and Woodcutting)
 
-Turning it on adds another toggle to disable Tasks and the Tutorial glow if you're a No-Tutorial Icon Cow
+Turning it on adds 2 more toggles. One to disable Tasks and the Tutorial glow if you're a No-Tutorial Icon Cow, and one to enable Combat-Only mode.
 
 ---
 
