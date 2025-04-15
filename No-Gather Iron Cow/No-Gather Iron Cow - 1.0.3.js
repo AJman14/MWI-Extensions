@@ -29,7 +29,7 @@ waitForElm("[class*='NavigationBar_minorNavigationLinks']").then((elm) => {
     let nav = "[class*=NavigationBar_navigationLinks]:has(.AJman14-NGIC #ngicToggle:checked)";
     let link = "[class*=NavigationBar_navigationLink__]";
     let ngicItems = '[href*=".svg#milking"], [href*=".svg#foraging"], [href*=".svg#woodcutting"]';
-    let coicItems = '[href*=".svg#milking"], [href*=".svg#foraging"], [href*=".svg#woodcutting"], [href*=".svg#cheesesmithing"], [href*=".svg#crafting"], [href*=".svg#tailoring"], [href*=".svg#cooking"], [href*=".svg#brewing"]';
+    let coicItems = ngicItems + ', [href*=".svg#cheesesmithing"], [href*=".svg#crafting"], [href*=".svg#tailoring"], [href*=".svg#cooking"], [href*=".svg#brewing"]';
 
     elm.insertAdjacentHTML("afterbegin", `
 
