@@ -1,13 +1,23 @@
 ## Custom Styles
-A green theme that also tweaks several items throughout the game. It makes task and skilling/combat items smaller, recolors and adds a glow to moderator and admin icons, etc. Try it out!
+A green theme that makes minor changes to several items throughout the game. I think you'll find the QoL tweaks to be pretty nice. Try it out!
+- Skilling/combat items are more condensed
+- Moderator icons are now golden
+  - Both moderator and admin icons have a slight glow
+- Added text before the icon in the header explaining what your current action is
+- Prepended your HP/MP bars in the header with "Your Stats"
+- Check out the Custom Styles > Add-Ons subfolder (installed as separate extensions)
 
 ## Stylized Extension Manager
-Styles the buttons of the Extension Manager to match the game's theme, tweaks the textarea resizing, and allows scrolling if your extension list is too long.
+- Styles the buttons of the Extension Manager to match the game's theme
+- Tweaks the textarea resizing to only allow vertical resizing
+- Allows scrolling if your extension list gets too long
 
 ## No-Gather Iron Cow
-Adds a checkbox toggle directly below the Settings navigation item to disable the clickability of the gathering navigation items. (Milking, Foraging, and Woodcutting)
-
-Turning it on adds 2 more toggles. One to disable Tasks and the Tutorial glow if you're a No-Tutorial Icon Cow, and another to enable Combat-Only mode. Combat-Only enables an additional toggle for Enhancing.
+Adds several checkbox toggles directly below the Settings button to disable the clickability of navigation items:
+- Disable gathering items (Milking, Foraging, and Woodcutting)
+  - Disable Tasks and the Tutorial glow if you're a No-Tutorial Icon Cow
+  - Enable Combat-Only mode (Disables Cheesesmithing, Crafting, Tailoring, Cooking, Brewing, and Alchemy)
+    - Combat-Only enables an additional toggle for Enhancing
 
 ---
 
