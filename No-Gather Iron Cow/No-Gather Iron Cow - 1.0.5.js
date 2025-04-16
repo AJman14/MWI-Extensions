@@ -12,13 +12,13 @@ var exists = document.querySelector(selector);
 const observer = new MutationObserver(mutations => {
     if (document.querySelector(selector)) {
         if (!exists) {
-            console.log("Navigation detected. Adding Iron Cow options.");
+            //console.log("Navigation detected. Adding Iron Cow options.");
             printContent(selector);
         }
         exists = true;
     } else if (exists) {
         exists = false;
-        console.log("Navigation has been removed. Watching for it to reappear!");
+        //console.log("Navigation has been removed. Watching for it to reappear!");
     }
 });
 observer.observe(document.body, {
