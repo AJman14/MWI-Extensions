@@ -10,6 +10,7 @@ Also check out the Custom Styles > Add-Ons subfolder! (installed as separate ext
 
 ## Stylized Extension Manager
 - Styles the buttons of the Extension Manager to match the game's theme
+- Makes active extensions more visible
 - Tweaks the textarea resizing to only allow vertical resizing
 - Allows scrolling if your extension list gets too long
 
