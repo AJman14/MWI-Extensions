@@ -5,7 +5,7 @@ A green theme that makes minor changes to several items throughout the game. I t
   - Both moderator and admin icons have a slight glow
 - Added text before the icon in the header explaining what your current action is
 - Prepended your HP/MP bars in the header with "Your Stats"
-- Check out the Custom Styles > Add-Ons subfolder (installed as separate extensions)
+Also check out the Custom Styles > Add-Ons subfolder! (installed as separate extensions)
 
 ## Stylized Extension Manager
 - Styles the buttons of the Extension Manager to match the game's theme
