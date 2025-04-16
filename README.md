@@ -18,7 +18,7 @@ Also check out the Custom Styles > Add-Ons subfolder! (installed as separate ext
 Adds several checkbox toggles directly below the Settings button to disable the clickability of navigation items:
 - Disable gathering items (Milking, Foraging, and Woodcutting)
   - Disable Tasks and the Tutorial glow if you're a No-Tutorial Icon Cow
-  - Enable Combat-Only mode (Disables Cheesesmithing, Crafting, Tailoring, Cooking, Brewing, and Alchemy)
+  - Combat-Only mode (Disables Cheesesmithing, Crafting, Tailoring, Cooking, Brewing, and Alchemy)
     - Combat-Only enables an additional toggle for Enhancing
 
 ---
