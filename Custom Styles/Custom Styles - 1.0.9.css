@@ -2,7 +2,7 @@
 // @name        Custom Styles
 // @match       https://www.milkywayidle.com/game*
 // @grant       none
-// @version     1.0.9
+// @version     1.0.9.1
 // @author      AJman14
 // ==/UserScript==
 
@@ -276,6 +276,10 @@ span[style*="color: var(--color-space-300);"] {
 /* All tasks - Purple, Unread, Active */
 [class*=TasksPanel_taskList] > div{
     min-width: 250px !important;
+}
+/* Purple's Gift - Claim Button */
+[class*=Button_button][class*=Button_secondary]{
+    color: #fff;
 }
 
 /* Reducing the size of skilling/combat items. They are massive by default. */
