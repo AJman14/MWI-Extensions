@@ -2,7 +2,7 @@
 // @name        Custom Styles
 // @match       https://www.milkywayidle.com/game*
 // @grant       none
-// @version     1.0.10
+// @version     1.0.10.1
 // @author      AJman14
 // ==/UserScript==
 
@@ -230,6 +230,11 @@ svg:has(> use[href*=".svg#admin"]) {
 [class*=NavigationBar_active],
 [class*=NavigationBar_active]:hover{
     background: var(--color-primary-alt) !important;
+}
+
+/* Sidebar notifications (patch updates) */
+[class*=NavigationBar_badge] {
+    color: #ffffff !important;
 }
 
 /* Selected tab (Chat, Marketplace, etc...), Selection popup items (Party location, Loadout,...) */
