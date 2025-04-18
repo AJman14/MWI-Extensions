@@ -2,7 +2,7 @@
 // @name        No-Gather Iron Cow
 // @match       https://www.milkywayidle.com/game*
 // @grant       none
-// @version     1.0.7
+// @version     1.0.7.1
 // @author      AJman14
 // ==/UserScript==
 
@@ -88,7 +88,8 @@ function printContent(selector){
         ` + nav + `:has(.AJman14-NGIC #nticToggle:checked) ` + link + `.glowing {
             animation: none;
         }
-        body:has(.AJman14-NGIC #ngicToggle:checked):has(.AJman14-NGIC #nticToggle:checked) [class*=Header_questInfo]{
+        body:has(.AJman14-NGIC #ngicToggle:checked):has(.AJman14-NGIC #nticToggle:checked) [class*=Header_questInfo],
+        body:has(.AJman14-NGIC #ngicToggle:checked):has(.AJman14-NGIC #nticToggle:checked) [class*=QuestModal_questModalContainer]{
             display: none;
         }
         ` + nav + ` ` + link + `:has(svg > use:is(` + ngicItems + `)),
