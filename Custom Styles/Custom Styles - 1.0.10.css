@@ -2,7 +2,7 @@
 // @name        Custom Styles
 // @match       https://www.milkywayidle.com/game*
 // @grant       none
-// @version     1.0.10.1
+// @version     1.0.10.2
 // @author      AJman14
 // ==/UserScript==
 
@@ -308,6 +308,7 @@ span[style*="color: var(--color-space-300);"] {
     position: relative;
     z-index: 1;
     text-shadow: 0px 0px 2px #000000, 0px 0px 4px #000000;
+    pointer-events: none;
 }
 
 /* Combat damage dealt/taken alert */
