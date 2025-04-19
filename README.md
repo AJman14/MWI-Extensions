@@ -30,6 +30,6 @@ Adds several checkbox toggles directly below the Settings button to disable the 
 
 ---
 
-**These extensions are created for the Steam version of the game**. Although you could probably also get them to work in your browser with an extension like Tampermonkey, YMMV, as I have not written my styles with extra browser compatibility.
+**These extensions are created for the Steam version of the game**. You could probably also get them to work in your browser with an extension like Tampermonkey, but YMMV, as I have not written my styles with extra browser compatibility.
 
 *I named some of the files with CSS extensions to read the styles more easily, but they are NOT Cascading Style Sheets. These are JavaScript files meant to be copied into your Extension Manager.*
