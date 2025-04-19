@@ -26,7 +26,7 @@ Adds several checkbox toggles directly below the Settings button to disable the 
   - Combat-Only mode (Disables Cheesesmithing, Crafting, Tailoring, Cooking, Brewing, and Alchemy)
     - Combat-Only enables an additional toggle for Enhancing
 
-**Toggle Iron Cow mode with `Ctrl + Alt + I`**
+**Toggle with `Ctrl + Alt + I`**
 
 ---
 
