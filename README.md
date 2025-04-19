@@ -1,3 +1,8 @@
+# How To Install Extensions
+Go to the extension you want, copy the entire file contents into your Steam Extension Manager, give it a name, and click `Save and Reload`.
+
+To access your extensions: In the top-left of your game, click `Game` > `Manage Extensions`.
+
 ## Custom Styles
 A green theme that makes minor changes to several items throughout the game. I think you'll find the QoL tweaks to be pretty nice. Try it out!
 - Skilling/combat items are more condensed
@@ -21,8 +26,10 @@ Adds several checkbox toggles directly below the Settings button to disable the 
   - Combat-Only mode (Disables Cheesesmithing, Crafting, Tailoring, Cooking, Brewing, and Alchemy)
     - Combat-Only enables an additional toggle for Enhancing
 
+**Toggle Iron Cow mode with `Ctrl + Alt + I`**
+
 ---
 
-**These extensions are created for the Steam version of the game**, although you could probably also get them to work in your browser with an extension like Tampermonkey.
+**These extensions are created for the Steam version of the game**. Although you could probably also get them to work in your browser with an extension like Tampermonkey, YMMV, as I have not written my styles with extra browser compatibility.
 
-*I named some of the files with CSS extensions for better legibility, but they are NOT Cascading Style Sheets. These are JavaScript meant to be copied into your Extension Manager.*
+*I named some of the files with CSS extensions to read the styles more easily, but they are NOT Cascading Style Sheets. These are JavaScript files meant to be copied into your Extension Manager.*
