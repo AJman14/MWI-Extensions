@@ -1,9 +1,11 @@
 // ==UserScript==
-// @name        No-Gather Iron Cow
-// @match       https://www.milkywayidle.com/game*
-// @grant       none
-// @version     1.0.7.1
-// @author      AJman14
+// @name         No-Gather Iron Cow
+// @description  Disable the gathering navigation menu links
+// @match        https://www.milkywayidle.com/*
+// @match        https://test.milkywayidle.com/*
+// @grant        none
+// @version      1.0.7.2
+// @author       AJman14
 // ==/UserScript==
 
 var selector = "[class*='NavigationBar_minorNavigationLinks']";
@@ -156,7 +158,7 @@ function saveSettings(el){
 
 document.addEventListener('keydown', function(event) {
     if (event.altKey && event.ctrlKey && event.key === 'i') {
-        checkbox = document.getElementById('ngicToggle');
+        let checkbox = document.getElementById('ngicToggle');
         //console.log('CTRL + Alt + I was pressed');
         if (checkbox.checked == true){
             checkbox.checked = false;
