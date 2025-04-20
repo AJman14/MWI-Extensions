@@ -1,9 +1,11 @@
 // ==UserScript==
-// @name        Custom Styles
-// @match       https://www.milkywayidle.com/game*
-// @grant       none
-// @version     1.0.10.2
-// @author      AJman14
+// @name         Custom Styles
+// @description  A green theme with several QoL tweaks
+// @match        https://www.milkywayidle.com/*
+// @match        https://test.milkywayidle.com/*
+// @grant        none
+// @version      1.0.10.2
+// @author       AJman14
 // ==/UserScript==
 
 document.head.insertAdjacentHTML("beforeend", `<style>
