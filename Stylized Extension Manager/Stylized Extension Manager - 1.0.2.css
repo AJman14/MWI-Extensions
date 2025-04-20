@@ -1,9 +1,11 @@
 // ==UserScript==
-// @name        Stylized Extension Manager
-// @match       https://www.milkywayidle.com/game*
-// @grant       none
-// @version     1.0.2
-// @author      AJman14
+// @name         Stylized Extension Manager
+// @description  Style the Steam extension manager to match the game's theme
+// @match        https://www.milkywayidle.com/*
+// @match        https://test.milkywayidle.com/*
+// @grant        none
+// @version      1.0.2
+// @author       AJman14
 // ==/UserScript==
 
 document.head.insertAdjacentHTML("beforeend", `<style>
