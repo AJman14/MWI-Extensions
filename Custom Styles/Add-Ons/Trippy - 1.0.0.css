@@ -1,9 +1,11 @@
 // ==UserScript==
-// @name        Trippy
-// @match       https://www.milkywayidle.com/game*
-// @grant       none
-// @version     1.0.0
-// @author      AJman14
+// @name         Trippy
+// @description  A Custom Styles add-on. Make your game a living rainbow. Warning: may cause horrible performance!
+// @match        https://www.milkywayidle.com/*
+// @match        https://test.milkywayidle.com/*
+// @grant        none
+// @version      1.0.0
+// @author       AJman14
 // ==/UserScript==
 
 document.head.insertAdjacentHTML("beforeend", `<style>
