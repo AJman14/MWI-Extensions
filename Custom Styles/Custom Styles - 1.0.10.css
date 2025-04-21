@@ -3,9 +3,10 @@
 // @description  A green theme with several QoL tweaks
 // @match        https://www.milkywayidle.com/*
 // @match        https://test.milkywayidle.com/*
-// @grant        none
-// @version      1.0.10.2
+// @version      1.0.10.3
 // @author       AJman14
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=milkywayidle.com
+// @grant        none
 // ==/UserScript==
 
 document.head.insertAdjacentHTML("beforeend", `<style>
@@ -96,6 +97,9 @@ body{
 }
 [class*=CharacterSelectPage_status]{
     color: var(--color-success);
+}
+[class*=CharacterSelectPage_status][class*=CharacterSelectPage_online]{
+    color: var(--color-primary-hover);
 }
 
 /* Current number of active players */
