@@ -198,7 +198,8 @@ body{
 [class*=Ability_ability][class*=Ability_inline]{
     border-color: var(--color-primary);
 }
-[class*=Item_itemContainer] [class*=Item_item][class*=Item_clickable]:hover{
+[class*=ChatMessage_linkContainer] [class*=Item_itemContainer] [class*=Item_item][class*=Item_clickable]:hover,
+[class*=ItemDictionary_modalContent] [class*=Item_itemContainer] [class*=Item_item][class*=Item_clickable]:hover{
     background-color: var(--color-primary-dark);
 }
 
