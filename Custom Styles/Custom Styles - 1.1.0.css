@@ -3,7 +3,7 @@
 // @description  A green theme with several QoL tweaks
 // @match        https://www.milkywayidle.com/*
 // @match        https://test.milkywayidle.com/*
-// @version      1.1.0
+// @version      1.1.0.1
 // @author       AJman14
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=milkywayidle.com
 // @grant        none
@@ -385,6 +385,17 @@ span[style*="color: var(--color-space-300);"] {
 .MuiPaper-root {
     background: rgba(var(--color-primary-darker-rgb), 0.95) !important;
     color: #ddd !important;
+}
+[class*=Dropdown_dropdown] [class*=MuiFormControl-root]{
+    background-color: var(--color-primary) !important;
+    border-radius: 4px !important;
+}
+[class*=Dropdown_dropdown] [class*=MuiFormControl-root]:hover{
+    background-color: var(--color-primary-hover) !important;
+}
+[class*=Dropdown_dropdown] [class*=MuiFormControl-root] [class*=MuiInputBase-root],
+[class*=Dropdown_dropdown] [class*=MuiFormControl-root] [class*=MuiInputBase-root] [class*=MuiSelect-icon]{
+    color: #fff !important;
 }
 
 
