@@ -362,6 +362,10 @@ span[style*="color: var(--color-space-300);"] {
 [class*=CombatUnit_damage]{
     background-color: var(--color-warning) !important;
 }
+[class*=CombatUnit_criticalDamage] {
+    background-color: var(--color-warning-hover) !important;
+    box-shadow: 0 0 3px 3px var(--color-success-hover) !important;
+}
 /* Auto Attack / Spell Casting */
 [class*=BattlePanel] [class*=CombatUnit] [class*=ProgressBar_innerBar_]{
     background-color: var(--color-success);
