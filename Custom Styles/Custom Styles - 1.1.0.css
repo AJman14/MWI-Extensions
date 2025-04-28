@@ -3,7 +3,7 @@
 // @description  A green theme with several QoL tweaks
 // @match        https://www.milkywayidle.com/*
 // @match        https://test.milkywayidle.com/*
-// @version      1.1.0.1
+// @version      1.1.0.2
 // @author       AJman14
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=milkywayidle.com
 // @grant        none
@@ -91,17 +91,17 @@ body{
 }
 
 /* Character select screen */
-[class*=CharacterSelectPage_characterSlots] [class*=CharacterName_characterName]{
+/* [class*=CharacterSelectPage_characterSlots] [class*=CharacterName_characterName]{
     color: var(--color-primary-hover);
-}
+} */
 [class*=CharacterSelectPage_gameMode]{
     color: var(--color-secondary) !important;
 }
 [class*=CharacterSelectPage_status]{
-    color: var(--color-success);
+    color: var(--color-success) !important;
 }
 [class*=CharacterSelectPage_status][class*=CharacterSelectPage_online]{
-    color: var(--color-primary-hover);
+    color: var(--color-primary-hover) !important;
 }
 
 /* Current number of active players */
@@ -120,9 +120,9 @@ body{
 }
 
 /* Header - character name */
-[class*=Header_info] [class*=Header_name]{
+/* [class*=Header_info] [class*=Header_name]{
     color: var(--color-primary-hover);
-}
+} */
 /* Header - current level */
 [class*=Header_info] [class*=Header_totalLevel]{
     color: var(--color-secondary-hover);
