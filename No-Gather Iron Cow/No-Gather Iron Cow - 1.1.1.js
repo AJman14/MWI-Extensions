@@ -3,7 +3,7 @@
 // @description  Disable the gathering navigation menu links
 // @match        https://www.milkywayidle.com/*
 // @match        https://test.milkywayidle.com/*
-// @version      1.1.1
+// @version      1.1.1.1
 // @author       AJman14
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=milkywayidle.com
 // @grant        none
@@ -117,12 +117,12 @@ function printContent(selector){
         ` + nav + ` ` + link + `:has(svg > use:is(` + ngicItems + `)) [class*="NavigationBar_level"],
         ` + nav + `:has(.AJman14-NGIC #coicToggle:checked) ` + link + `:has(svg > use:is(` + coicItems + `)) [class*="NavigationBar_level"],
         ` + nav + `:has(.AJman14-NGIC #coicToggle:checked):has(.AJman14-NGIC #coneToggle:checked) ` + link + `:has(svg > use:is(` + coneItems + `)) [class*="NavigationBar_level"]{
-            color: transparent;
+            display: none;
         }
-        /* Replace current level text */
-        ` + nav + ` ` + link + `:has(svg > use:is(` + ngicItems + `)) [class*=NavigationBar_level]:after,
-        ` + nav + `:has(.AJman14-NGIC #coicToggle:checked) ` + link + `:has(svg > use:is(` + coicItems + `)) [class*=NavigationBar_level]:after,
-        ` + nav + `:has(.AJman14-NGIC #coicToggle:checked):has(.AJman14-NGIC #coneToggle:checked) ` + link + `:has(svg > use:is(` + coneItems + `)) [class*=NavigationBar_level]:after{
+        /* After current level text */
+        ` + nav + ` ` + link + `:has(svg > use:is(` + ngicItems + `)) [class*=NavigationBar_textContainer]:after,
+        ` + nav + `:has(.AJman14-NGIC #coicToggle:checked) ` + link + `:has(svg > use:is(` + coicItems + `)) [class*=NavigationBar_textContainer]:after,
+        ` + nav + `:has(.AJman14-NGIC #coicToggle:checked):has(.AJman14-NGIC #coneToggle:checked) ` + link + `:has(svg > use:is(` + coneItems + `)) [class*=NavigationBar_textContainer]:after{
             content: "N/A";
             color: #999;
         }
