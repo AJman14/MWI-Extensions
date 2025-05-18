@@ -3,9 +3,10 @@
 // @description  Style the Steam extension manager to match the game's theme
 // @match        https://www.milkywayidle.com/*
 // @match        https://test.milkywayidle.com/*
-// @grant        none
-// @version      1.0.2
+// @version      1.0.2.1
 // @author       AJman14
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=milkywayidle.com
+// @grant        none
 // ==/UserScript==
 
 document.head.insertAdjacentHTML("beforeend", `<style>
@@ -17,9 +18,11 @@ document.head.insertAdjacentHTML("beforeend", `<style>
 /* Enabled script */
 #steam-milkywayidle-scripts-list > div{
     border: 1px solid #000000;
+    border-color: light-dark(rgb(0, 0, 0), rgb(133, 133, 133));
     border-radius: 3px;
     padding: 2px 2px 2px 6px;
-    background: #ffffff;
+    background: #ffffff08;
+    background: light-dark(#ffffff, #ffffff08);
     line-height: 1em;
 }
 #steam-milkywayidle-scripts-list > div:hover{
