@@ -3,7 +3,7 @@
 // @description  A customizable theme with several QoL tweaks
 // @match        https://www.milkywayidle.com/*
 // @match        https://test.milkywayidle.com/*
-// @version      2.0.0
+// @version      2.0.0.1
 // @author       AJman14
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=milkywayidle.com
 // @grant        none
@@ -183,10 +183,6 @@ body{
 [class*=Button_sell] svg,
 [class*=Button_buy] svg{
     filter: invert(100%);
-}
-/* Marketplace inline-styled colors (cowbell prices) */
-[class*=MarketplacePanel_price] [style*="color: var(--color-orange-200)"]{
-    color: inherit !important;
 }
 
 /* Task Reroll button, Loadout import button */
@@ -586,9 +582,6 @@ var insertedCSS = '';
 /* Init the CSS */
 document.head.insertAdjacentHTML("beforeend", `<style id="csColors"></style>`)
 
-// insertedHTML += `
-// <div class="csClrPicker">
-// `;
 for (const color in clrDefaults) {
     const colors = clrDefaults[color];
     insertedHTML += `
@@ -609,7 +602,6 @@ for (const color in clrDefaults) {
     }
     insertedHTML += `</div>`;
 }
-// insertedHTML += `</div>`;
 
 function setColors(){
     insertedCSS = ':root {';
