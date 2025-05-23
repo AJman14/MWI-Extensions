@@ -1,0 +1,839 @@
+// ==UserScript==
+// @name         Custom Styles
+// @description  A customizable theme with several QoL tweaks
+// @match        https://www.milkywayidle.com/*
+// @match        https://test.milkywayidle.com/*
+// @version      2.1.0
+// @author       AJman14
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=milkywayidle.com
+// @grant        none
+// ==/UserScript==
+
+document.head.insertAdjacentHTML("beforeend", `<style>
+
+/* {Setting the color scheme} */
+:root {
+    --color-primary: #409530;
+    --color-primary-rgb: 64, 149, 48;
+    --color-primary-light: #46bd2f;
+    --color-primary-hover: var(--color-primary-light);
+    --color-primary-alt: #195e0c;
+    --color-primary-alt-rgb: 25, 94, 12;
+    --color-primary-dark: #1d4616;
+    --color-primary-darker: #0e1f0b;
+    --color-primary-darker-rgb: 14, 31, 11;
+    --color-secondary: #a272e4;
+    --color-secondary-light: #ac8fd4;
+    --color-secondary-hover: var(--color-secondary-light);
+    --color-success: var(--color-alert, #cd7d06);
+    --color-success-hover: var(--color-alert-hover, #ff9900);
+    --color-warning: #a00a0a;
+    --color-warning-hover: #cd1414;
+    --color-progress: var(--color-primary);
+    --color-health: var(--color-primary);
+    --color-hitpoints: var(--color-health);
+    --color-mana: #ae49ef;
+    --color-manapoints: var(--color-mana);
+    --color-market-sell: var(--color-success);
+    --color-market-sell-hover: var(--color-success-hover);
+    --color-market-buy: var(--color-primary);
+    --color-market-buy-hover: var(--color-primary-light);
+    --color-glow: var(--color-secondary);
+}
+
+/* Script Manager */
+#steam-milkywayidle-script-manager-panel{
+    overflow: auto;
+}
+/* Enabled script */
+#steam-milkywayidle-scripts-list > div{
+    border: 1px solid #000000;
+    border-color: light-dark(rgb(0, 0, 0), rgb(133, 133, 133));
+    border-radius: 3px;
+    padding: 2px 2px 2px 6px;
+    background: #ffffff08;
+    background: light-dark(#ffffff, #ffffff08);
+    line-height: 1em;
+}
+#steam-milkywayidle-scripts-list > div:hover{
+    background: none;
+}
+/* Textarea */
+#steam-milkywayidle-script-editor {
+    width: 100%;
+    resize: vertical;
+    min-height: 9rem;
+    max-height: calc(100vh - 16rem);
+}
+/* Textarea default height */
+#steam-milkywayidle-script-editor[style*="height: 200px;"] {
+    height: calc(75vh - 20rem) !important;
+}
+/* Buttons */
+#steam-milkywayidle-script-manager-panel > button:nth-of-type(1),
+#steam-milkywayidle-scripts-list > div > button,
+#steam-milkywayidle-save-script-button{
+    color: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 3px;
+    padding: 0.3em 0.6em;
+}
+/* Delete and Reload button */
+#steam-milkywayidle-scripts-list > div > button{
+    background: var(--color-warning);
+}
+#steam-milkywayidle-scripts-list > div > button:hover{
+    background: var(--color-warning-hover);
+}
+/* Save and Reload button */
+#steam-milkywayidle-save-script-button{
+    background: var(--color-primary);
+}
+#steam-milkywayidle-save-script-button:hover{
+    background: var(--color-primary-hover);
+}
+/* Close Extension Manager button */
+#steam-milkywayidle-script-manager-panel > button:nth-of-type(1){
+    background: var(--color-success);
+}
+#steam-milkywayidle-script-manager-panel > button:nth-of-type(1):hover{
+    background: var(--color-success-hover);
+}
+
+/* Glowing animation for new character guide */
+@keyframes glowing {
+    0% {
+        box-shadow:
+            inset 0 0 6px 2px var(--color-glow),
+            0 0 2px var(--color-glow),
+            0 0 4px #fff,
+            0 0 6px #fff,
+            0 0 10px var(--color-glow),
+            0 0 14px var(--color-glow),
+            0 0 16px var(--color-glow),
+            0 0 20px var(--color-glow);
+    }
+    to {
+        box-shadow:
+            inset 0 0 0 0 var(--color-glow),
+            0 0 1px var(--color-glow),
+            0 0 2px #fff,
+            0 0 3px #fff,
+            0 0 5px var(--color-glow),
+            0 0 7px var(--color-glow),
+            0 0 8px var(--color-glow),
+            0 0 10px var(--color-glow);
+    }
+}
+/* Chat tip links for new characters */
+[class*=Chat_tipMessage] a{
+    color: var(--color-primary-light) !important;
+}
+/* Tutorial tasks */
+[class*=Header_task][class*=Header_new]{
+    box-shadow: 0 0 2px 4px var(--color-secondary) !important;
+}
+[class*=Header_task][class*=Header_completed]{
+    box-shadow: 0 0 2px 4px var(--color-primary-light) !important;
+}
+
+/* News/Patch/Guide headings */
+[class*=NewsText_heading],
+[class*=PatchNotesText_heading],
+[class*=GameGuideContent_heading]{
+    color: var(--color-primary) !important;
+}
+/* Rules/Policy headings */
+[class*=GameRulesText_rules] > li > b,
+[class*=GameRulesText_rules] > li:before,
+[class*=PrivacyPolicyText_heading] {
+    color: var(--color-success-hover);
+}
+/* Cowbell Store important messages */
+[class*=CowbellStorePanel_important] {
+    color: var(--color-success-hover) !important;
+}
+/* Privacy Policy links */
+[class*=PrivacyPolicyText_privacyPolicyText] a:link{
+    color: var(--color-primary) !important;
+}
+[class*=PrivacyPolicyText_privacyPolicyText] a:hover:link{
+    color: var(--color-primary-light) !important;
+}
+
+/* Scrollbars */
+body{
+    scrollbar-color: var(--color-primary-light) transparent;
+}
+
+/* Character select screen */
+/* [class*=CharacterSelectPage_characterSlots] [class*=CharacterName_characterName]{
+    color: var(--color-primary-light);
+} */
+[class*=CharacterSelectPage_gameMode]{
+    color: var(--color-secondary) !important;
+}
+[class*=CharacterSelectPage_status]{
+    color: var(--color-success) !important;
+}
+[class*=CharacterSelectPage_status][class*=CharacterSelectPage_online]{
+    color: var(--color-primary-light) !important;
+}
+[class*=CharacterSelectPage_characterSlots]{
+    border: 0 !important;
+}
+[class*=CharacterSelectPage_slot] {
+    width: auto !important;
+    height: auto !important;
+    max-width: 450px !important;
+    min-height: 10em !important;
+    padding: 1.5em 6.5em !important;
+    border-color: var(--color-primary) !important;
+}
+[class*=CharacterSelectPage_slot]:hover {
+    border-color: var(--color-primary-light) !important;
+    z-index: 1 !important;
+}
+[class*=CharacterSelectPage_slot] [class*=CharacterSelectPage_count]{
+    background-color: var(--color-primary) !important;
+    color: #fff !important;
+    top: -1px !important;
+}
+[class*=CharacterSelectPage_slot]:hover [class*=CharacterSelectPage_count]{
+    background-color: var(--color-primary-light) !important;
+}
+
+/* Current number of active players */
+[class*=Header_playerCount]{
+    color: var(--color-secondary-hover) !important;
+}
+
+/* Server buffs */
+[class*=CommunityBuff_communityBuff_]{
+    border: 1px solid var(--color-primary-light);
+    background-color: var(--color-midnight-500);
+    box-shadow: 0px 0px 5px 0px var(--color-primary);
+}
+[class*=CommunityBuff_communityBuff_]:hover{
+    background-color: var(--color-midnight-300);
+}
+
+/* Header - character name */
+/* [class*=Header_info] [class*=Header_name]{
+    color: var(--color-primary-light);
+} */
+/* Header - current level */
+[class*=Header_info] [class*=Header_totalLevel]{
+    color: var(--color-secondary-hover);
+}
+
+/* Queued actions button */
+[class*=QueuedActions_queuedActions]{
+    border: none;
+}
+
+/* Marketplace (and other?) Buttons */
+[class*=Button_sell],
+[class*=Button_buy],
+[class*=Button_success]{
+    color: #ffffff !important;
+}
+/* Marketplace button up arrow */
+[class*=Button_sell] svg,
+[class*=Button_buy] svg{
+    filter: invert(100%);
+}
+
+/* Task Reroll button, Loadout import button */
+[class*=RandomTask_discardButtonContainer] + [class*=Button_button],
+[class*=LoadoutsPanel_buttonsContainer] > [class*=Button_button]:nth-of-type(1){
+    background: var(--color-success);
+}
+[class*=RandomTask_discardButtonContainer] + [class*=Button_button]:hover,
+[class*=LoadoutsPanel_buttonsContainer] > [class*=Button_button]:nth-of-type(1):hover{
+    background: var(--color-success-hover);
+}
+/* Task Go and other "success" buttons */
+[class*=Button_success]{
+    background: var(--color-primary) !important;
+}
+[class*=Button_success]:hover{
+    background: var(--color-primary-light) !important;
+}
+
+/* Chat, Marketplace, and Sidebar alerts */
+[class*=NavigationBar_badges] [class*=NavigationBar_badge_],
+[class*=MuiTabs-root] [class*=MuiButtonBase-root] [class*=MuiBadge-badge] {
+    color: #ffffff !important;
+}
+/* Chat and Marketplace tab alerts */
+[class*=MuiTabs-root] [class*=MuiButtonBase-root] [class*=MuiBadge-badge] {
+    background: var(--color-success) !important;
+}
+
+/* Chat Moderator messages, System messages */
+[class*=ChatMessage_chatMessage][class*=ChatMessage_modMessage]{
+    color: var(--color-success-hover) !important;
+}
+[class*=ChatMessage_chatMessage][class*=ChatMessage_systemMessage]{
+    color: var(--color-secondary-hover);
+}
+/* Chat links */
+[class*=ChatMessage_chatMessage] a{
+    color: var(--color-primary) !important;
+}
+[class*=ChatMessage_chatMessage] a:hover{
+    color: var(--color-primary-light) !important;
+}
+
+/* Chat linked items and skills, marketplace and tasks currency */
+[class*=ChatMessage_linkContainer] [class*=Skill_skill],
+[class*=Item_itemContainer] [class*=Item_item][class*=Item_inline],
+[class*=Ability_ability][class*=Ability_inline]{
+    background-color: rgba(var(--color-primary-alt-rgb), 0.25);
+}
+[class*=ChatMessage_linkContainer] [class*=Item_itemContainer] [class*=Item_item][class*=Item_inline],
+[class*=ChatMessage_linkContainer] [class*=Skill_skill][class*=Skill_inline],
+[class*=Item_itemContainer] [class*=Item_item][class*=Item_inline],
+[class*=Ability_ability][class*=Ability_inline]{
+    border-color: var(--color-primary);
+}
+[class*=ChatMessage_linkContainer] [class*=Item_itemContainer] [class*=Item_item][class*=Item_clickable]:hover,
+[class*=ItemDictionary_modalContent] [class*=Item_itemContainer] [class*=Item_item][class*=Item_clickable]:hover{
+    background-color: var(--color-primary-dark);
+}
+
+/* Moderator and Admin icons - Chat, Rules, and any other locations */
+svg:has(> use[href*=".svg#moderator"]){
+    filter: hue-rotate(136deg) saturate(1.5) brightness(1.2) drop-shadow(0px 0px 2px var(--color-success));
+}
+svg:has(> use[href*=".svg#admin"]) {
+    filter: drop-shadow(0px 0px 2px var(--color-success)) drop-shadow(0px 0px 2px var(--color-success));
+}
+
+/* OK button while replacing current queue, fleeing battle, etc. */
+[class*=DialogModal_buttonsContainer] [class*=DialogModal_buttonContainer]:nth-of-type(2) [class*=Button_button]{
+    background: var(--color-success) !important;
+}
+[class*=DialogModal_buttonsContainer] [class*=DialogModal_buttonContainer]:nth-of-type(2) [class*=Button_button]:hover{
+    background: var(--color-success-hover) !important;
+}
+
+/* Skill level progress, task completion bar */
+[class*=NavigationBar_currentExperience],
+[class*=RandomTask_progressBar] [class*=RandomTask_completed]{
+    background: var(--color-primary-light) !important;
+}
+/* Task completion before reaching 100% */
+[class*=RandomTask_progressBar] [class*=RandomTask_completed]:not([style="width: 100%;"]){
+    background: var(--color-primary) !important
+}
+/* Task completion bar background */
+[class*=TasksPanel_taskList]{
+    --color-empty: transparent;
+}
+
+/* Sidebar Marketplace/Tasks/Skill links, Tabs (marketplace, chat,...) */
+[class*=NavigationBar_navigationLink_]:hover,
+[class*=MuiButtonBase-root]:hover{
+    background: var(--color-primary-dark) !important;
+    color: #ffffff;
+}
+[class*=NavigationBar_active],
+[class*=NavigationBar_active]:hover{
+    background: var(--color-primary-alt) !important;
+}
+
+/* Sidebar notifications (patch updates) */
+[class*=NavigationBar_badge] {
+    color: #ffffff !important;
+}
+
+/* Selected tab (Chat, Marketplace, etc...), Selection popup items (Party location, Loadout,...) */
+[class*=Mui-selected],
+[class*=Mui-selected]:hover{
+    background: var(--color-primary) !important;
+    color: #ffffff !important;
+}
+
+/* Inline styled spans (see Alchemy "Coinify",...) */
+span[style*="color: var(--color-space-300);"] {
+    color: var(--color-primary) !important;
+}
+/* Cowbell store MooPass "Perks" link, cowbell store "Unlocked" text */
+[class*=CowbellStorePanel_mooPassTab] [class*=CowbellStorePanel_instructions] a,
+[class*=CowbellStorePanel_buyable][class*=CowbellStorePanel_unlocked] [class*=CowbellStorePanel_bottomText]{
+    color: var(--color-primary-light) !important;
+}
+
+/* Loadout slot */
+[class*=LoadoutsPanel_characterLoadout_]{
+    color: var(--color-primary-light);
+}
+
+/* Sidebar Tea skill bonus, Loadout missing item */
+[class*=NavigationBar_level] [class*=NavigationBar_boost],
+[class*=LoadoutsPanel_missing]{
+    color: var(--color-success-hover) !important;
+}
+
+/* Popup text labels, Chat timestamp, Offline text labels, Dictionary popup headings, House popup headings */
+[class*=SkillActionDetail_label],
+[class*=ChatMessage_timestamp],
+[class*=OfflineProgressModal_label],
+[class*=ItemDictionary_header],
+[class*=HousePanel_modalContent] [class*=HousePanel_label]{
+    color: var(--color-primary) !important;
+}
+/* Requirement not met (Not enough skill crafting/house building ingredients,...) */
+[class*=SkillActionDetail_notMet],
+[class*=HousePanel_notMet]{
+    color: var(--color-warning-hover) !important;
+}
+
+/* Reducing the task sizes a little bit. They are too wide. */
+[class*=TasksPanel_taskList]{
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+}
+/* All tasks - Purple, Unread, Active */
+[class*=TasksPanel_taskList] > div{
+    min-width: 250px !important;
+}
+/* Purple's Gift - Claim Button */
+[class*=Button_button][class*=Button_secondary]{
+    color: #fff;
+}
+
+/* Reducing the size of skilling/combat items. They are massive by default. */
+[class*=SkillActionGrid_skillActionGrid]{
+    grid-template-columns: repeat(auto-fill, 100px);
+    grid-gap: 4px;
+}
+[class*=SkillAction_skillAction]{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    font-size: 12px;
+    grid-template-columns: 100px;
+    grid-template-rows: 100px;
+}
+[class*=SkillAction_skillAction] [class*=SkillAction_name]{
+    margin-top: 2px;
+    font-size: 1em;
+    line-height: 1em;
+    /* For when text overlaps an image: */
+    position: relative;
+    z-index: 1;
+    text-shadow: 0px 0px 2px #000000, 0px 0px 4px #000000;
+    pointer-events: none;
+}
+
+/* Combat damage dealt/taken alert */
+[class*=CombatUnit_damage]{
+    background-color: var(--color-warning) !important;
+}
+[class*=CombatUnit_criticalDamage] {
+    background-color: var(--color-warning-hover) !important;
+    box-shadow: 0 0 3.5px 2.5px var(--color-success-hover) !important;
+}
+/* Auto Attack / Spell Casting */
+[class*=BattlePanel] [class*=CombatUnit] [class*=ProgressBar_innerBar_]{
+    background-color: var(--color-success);
+}
+/* Respawn countdown number */
+[class*=CountdownOverlay_countdownOverlay] > span > span + br + span{
+    color: var(--color-success-hover) !important;
+    text-shadow: 0px 0px 2px #000000, 0px 0px 9px #000000;
+}
+
+/* Notifications */
+[class*=Notification_notification] [class*=Notification_text]{
+    border-color: var(--color-primary-light);
+    background-color: rgba(var(--color-primary-alt-rgb), 0.9);
+}
+
+/* Tooltips */
+.MuiTooltip-tooltip{
+    background: rgba(var(--color-primary-darker-rgb), 0.95) !important;
+    border: 2px solid var(--color-primary-dark) !important;
+    color: #ddd !important;
+}
+.MuiTooltip-tooltip div,
+.MuiTooltip-tooltip span{
+    border-color: #ddd !important;
+}
+/* MWI Tools Tooltips */
+.MuiTooltip-tooltip [style*="color"],
+.MuiTooltip-tooltip [style*="color"] *{
+    color: #fff !important;
+}
+.MuiTooltip-tooltip [style*="border"]{
+    border-color: #fff !important;
+}
+
+/* Guide (?) circle icons */
+svg:has(use[href*="#info"]) {
+    filter: hue-rotate(166deg) saturate(1.9);
+}
+
+/* Combat Party */
+[class*=FindParty_findParty] [class*=FindParty_partySlot][class*=FindParty_notReady],
+[class*=Party_party] [class*=Party_partySlot][class*=Party_notReady]{
+    border-top-color: var(--color-warning-hover) !important;
+}
+[class*=FindParty_findParty] [class*=FindParty_partySlot][class*=FindParty_ready],
+[class*=Party_party] [class*=Party_partySlot][class*=Party_ready]{
+    border-top-color: var(--color-primary-light) !important;
+}
+[class*=Party_party] [class*=Party_buttonsContainer]{
+    background: var(--color-primary-darker) !important;
+}
+/* Ready button checkmark */
+[class*=Party_buttonsContainer] svg:has(use[href*="#checkbox_checked"]){
+    filter: invert(1) hue-rotate(121deg) brightness(1.3) saturate(0.8);
+}
+[class*=Party_buttonsContainer] [class*=Button_button]:hover svg:has(use[href*="#checkbox_checked"]){
+    filter: invert(1) hue-rotate(121deg) brightness(1.65) saturate(0.8);
+}
+/* Dropdowns (Loadout, Zone select,...) */
+.MuiPaper-root {
+    background: rgba(var(--color-primary-darker-rgb), 0.95) !important;
+    color: #ddd !important;
+}
+[class*=Dropdown_dropdown] [class*=MuiFormControl-root]{
+    background-color: var(--color-primary) !important;
+    border-radius: 4px !important;
+}
+[class*=Dropdown_dropdown] [class*=MuiFormControl-root]:hover{
+    background-color: var(--color-primary-light) !important;
+}
+[class*=Dropdown_dropdown] [class*=MuiFormControl-root] [class*=MuiInputBase-root],
+[class*=Dropdown_dropdown] [class*=MuiFormControl-root] [class*=MuiInputBase-root] [class*=MuiSelect-icon]{
+    color: #fff !important;
+}
+
+/* Game announcement banner ("quick patch incoming"...) */
+[class*=GamePage_gamePage] [class*=GamePage_announcement]{
+    border-color: var(--color-warning);
+    background-color: var(--color-warning);
+    color: #fff;
+}
+
+
+
+/* Prepend current action with its name - example: "Milking: Azure Cow (14)" */
+[class*=Header_actionName]:has(svg > use[href*='.svg#milking']):before {
+    content: 'Milking:';
+}
+[class*=Header_actionName]:has(svg > use[href*='.svg#foraging']):before {
+    content: 'Foraging:';
+}
+[class*=Header_actionName]:has(svg > use[href*='.svg#woodcutting']):before {
+    content: 'Woodcutting:';
+}
+[class*=Header_actionName]:has(svg > use[href*='.svg#cheesesmithing']):before {
+    content: 'Cheesesmithing:';
+}
+[class*=Header_actionName]:has(svg > use[href*='.svg#crafting']):before {
+    content: 'Crafting:';
+}
+[class*=Header_actionName]:has(svg > use[href*='.svg#tailoring']):before {
+    content: 'Tailoring:';
+}
+[class*=Header_actionName]:has(svg > use[href*='.svg#cooking']):before {
+    content: 'Cooking:';
+}
+[class*=Header_actionName]:has(svg > use[href*='.svg#brewing']):before {
+    content: 'Brewing:';
+}
+[class*=Header_actionName]:has(svg > use[href*='.svg#alchemy']):before {
+    content: 'Alchemy:';
+}
+[class*=Header_actionName]:has(svg > use[href*='.svg#enhancing']):before {
+    content: 'Enhancing:';
+}
+[class*=Header_actionName]:has(svg > use[href*='.svg#combat']):before {
+    content: 'Combat:';
+}
+
+/* Prepend your HP/MP bar at the top with "Your Stats:" */
+[class*=Header_progressBarAndButton]:has([class*=Header_hpMpBars]):before {
+    content: 'Your Stats:';
+}
+
+/* Append HP/MP on health/mana bars - Example: "141/500 HP" */
+[class*=HitpointsBar_hpValue]:after{
+    content: ' HP';
+}
+[class*=ManapointsBar_mpValue]:after{
+    content: ' MP';
+}
+
+/* Active skill cheese wheel animation */
+[class*=SkillAction_activeHammi]{
+    z-index: 1;
+}
+[class*=SkillAction_activeHammi] > [class*=Icon_icon]{
+    filter: drop-shadow(0px 0px 10px var(--color-success-hover));
+}
+
+</style>`)
+
+
+/* =================================
+
+Add Color Pickers to Settings > Game
+
+================================= */
+
+const clrDefaults = {
+    Primary: {
+        Base: '#409530',
+        Light: '#46bd2f',
+        Alt: '#195e0c',
+        Dark: '#1d4616',
+        Darker: '#0e1f0b',
+    },
+    Alert: {
+        Base: '#cd7d06',
+        Hover: '#ff9900',
+    },
+    Secondary: {
+        Base: '#a272e4',
+        Light: '#ac8fd4',
+    },
+    Warning: {
+        Base: '#a00a0a',
+        Hover: '#cd1414',
+    },
+    Health: {
+        Base: '#409530',
+    },
+    Mana: {
+        Base: '#ae49ef',
+    },
+}
+
+var settingsPage = "[class*='SettingsPanel_gameTab'] [class*='SettingsPanel_infoGrid']";
+var elExists = document.querySelector(settingsPage);
+
+/* Watch for the Settings page to prepend the Theme Colors inputs */
+const settingsObserver = new MutationObserver(mutations => {
+    if (document.querySelector(settingsPage)) {
+        if (!elExists) {
+            //console.log("Settings page detected. Adding color picker.");
+            addColorPicker(settingsPage);
+        }
+        elExists = true;
+    } else if (elExists) {
+        elExists = false;
+        //console.log("Settings page has been closed. Watching for it to reappear!");
+    }
+});
+settingsObserver.observe(document.body, {
+    childList: true,
+    subtree: true
+});
+
+var insertedHTML = '';
+var insertedCSS = '';
+
+/* Init the CSS */
+document.head.insertAdjacentHTML("beforeend", `<style id="csColors"></style>`)
+
+for (const color in clrDefaults) {
+    const colors = clrDefaults[color];
+    insertedHTML += `
+        <div class="csClrPicker">
+    `;
+    for (const subColor in colors) {
+        const subColorValue = colors[subColor];
+        /* Sets up RGB colors and adds/updates the key-value pairs in the clrDefaults object */
+        colors[subColor.replace('-RGB', '')+"-RGB"] = hexToRGB(subColorValue);
+        /* Print only the non-RGB subColors */
+        if(subColor == subColor.replace('-RGB', '')){
+            insertedHTML += `
+                <div class="csClr">
+                    <label><div>`+(subColor == 'Base' ? '<b>'+color+'</b>' : subColor)+`</div> <input type="color" id="csClr`+color+(subColor == 'Base' ? '' : subColor)+`" data-clr-default="`+subColorValue+`"></label><button class="Button_button Button_warning">Reset</button>
+                </div>
+            `;
+        }
+    }
+    insertedHTML += `</div>`;
+}
+
+function setColors(){
+    insertedCSS = ':root {';
+    for (const color in clrDefaults) {
+        const colors = clrDefaults[color];
+        for (const subColor in colors) {
+            const subColorValue = colors[subColor];
+            //console.log(subColor + ': ' + subColorValue);
+            /* Update the RGB colors - strip RGB from existing subColor then add again so we don't get -RGB-RGB doubles */
+            colors[subColor.replace('-RGB', '')+"-RGB"] = hexToRGB(subColorValue);
+            /* Check if local storage has anything, else use the defaults */
+            let elementID = 'csClr'+color+((subColor == 'Base') ? '' : (subColor == 'Base-RGB' ? '-RGB' : subColor))
+            //console.log('Looking for saved color: '+elementID);
+            if (localStorage.getItem(elementID)){
+                insertedCSS += '--color-'+color.toLowerCase()+((subColor == 'Base') ? '' : (subColor == 'Base-RGB' ? '-rgb' : '-'+subColor.toLowerCase())) + ':' + localStorage.getItem(elementID) + ';';
+                //console.log('Saved color found: '+localStorage.getItem(elementID));
+            } else {
+                localStorage.setItem(elementID, subColorValue);
+                insertedCSS += '--color-'+color.toLowerCase()+((subColor == 'Base') ? '' : (subColor == 'Base-RGB' ? '-rgb' : '-'+subColor.toLowerCase())) + ':' + subColorValue.toLowerCase() + ';';
+                //console.log('Saved color not found. Using default color: '+subColorValue);
+            }
+        }
+    }
+    insertedCSS += '}';
+    document.getElementById('csColors').innerHTML = insertedCSS;
+    //console.log(clrDefaults);
+}
+setColors()
+
+/* Print the Color pickers and relevant functions for saving/resetting */
+function addColorPicker(selector){
+
+    let labelClass = document.querySelector("[class*='SettingsPanel_label']").className;
+    let valueClass = document.querySelector("[class*='SettingsPanel_value']").className;
+
+    addedHTML = `
+        <div class="`+labelClass+`">Theme Colors:</div>
+        <div class="`+valueClass+` csClrPickers">
+        ` + insertedHTML + `
+        <style type="text/css">
+            /* Color Picker Styles */
+            .Button_button{
+                border-radius: 4px;
+                width: -moz-fit-content;
+                width: fit-content;
+                min-width: 50px;
+                height: 30px;
+                border: none;
+                padding: 0 10px;
+                font-family: "Roboto";
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 14px;
+                text-align: center;
+                background-color: var(--color-primary);
+                color: var(--color-text-dark-mode);
+                overflow: hidden;
+                -webkit-user-select: none;
+                user-select: none;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .Button_warning{
+                background-color: var(--color-warning);
+            }
+            .Button_warning:hover{
+                background-color: var(--color-warning-hover);
+            }
+            .csClrPickers{
+                flex-direction: row;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                max-width: 23em;
+            }
+            .csClrPicker{
+                min-width: 0;
+                max-width: 320px;
+                overflow-y: auto;
+                border-radius: 4px;
+                padding: 8px;
+                background-color: var(--color-midnight-700);
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px 6px;
+                align-items: center;
+                justify-content: flex-start;
+            }
+            .csClr{
+                width: 7ch;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .csClr > *{
+                display: block;
+                width: 100%;
+            }
+            .csClr label div{
+                line-height: 1;
+                font-size: 0.85em;
+            }
+            .csClr input[type="color"]{
+                margin: 6px 0;
+                width: 6ch;
+            }
+            .csClr button{
+                height: auto;
+                width: auto;
+                padding: 0.5ch 0.8ch;
+            }
+        </style>
+    `;
+
+    /* Insert the HTML */
+    document.querySelector(selector).insertAdjacentHTML("afterbegin", addedHTML);
+
+    /* Load values from storage (or defaults if they don't exist) and watch for changes */
+    document.querySelectorAll('.csClrPickers input[type="color"]').forEach(function(el) {
+        if (localStorage.getItem(el.id)){
+            el.value = localStorage.getItem(el.id);
+        } else {
+            resetInputValue(el);
+            //console.log('Using default color for ' + el.id);
+        }
+        /* Save changes */
+        el.addEventListener('change', function(el) {
+            localStorage.setItem(el.target.id, el.target.value);
+            localStorage.setItem(el.target.id+'-RGB', hexToRGB(el.target.value));
+            setColors();
+            console.log('Saved ' + el.target.id + ' as ' + el.target.value);
+            console.log('Saved ' + el.target.id+'-RGB' + ' as ' + hexToRGB(el.target.value));
+        });
+        //console.log('Listening for changes to ' + el.id);
+    });
+
+    /* Reset with button */
+    document.querySelectorAll('.csClrPickers button').forEach(function(el) {
+        el.addEventListener('click', function(element) {
+            let el = element.target.previousSibling.querySelector('input[type="color"]');
+            resetInputValue(el);
+            localStorage.removeItem(el.id);
+            localStorage.removeItem(el.id+'-RGB');
+            setColors()
+            //console.log('Reset ' + el.id + ' to default');
+            //console.log('Reset ' + el.id+'-RGB' + ' to default');
+        });
+    });
+}
+
+function resetInputValue(el){
+    el.value = el.getAttribute('data-clr-default');
+}
+
+// JS color conversion functions: https://css-tricks.com/converting-color-spaces-in-javascript/
+function hexToRGB(h) {
+    let r = 0, g = 0, b = 0;
+
+    // 3 digits
+    if (h.length == 4) {
+        r = "0x" + h[1] + h[1];
+        g = "0x" + h[2] + h[2];
+        b = "0x" + h[3] + h[3];
+
+    // 6 digits
+    } else if (h.length == 7) {
+        r = "0x" + h[1] + h[2];
+        g = "0x" + h[3] + h[4];
+        b = "0x" + h[5] + h[6];
+    }
+
+    return +r + "," + +g + "," + +b;
+}
