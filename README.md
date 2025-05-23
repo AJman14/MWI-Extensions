@@ -11,10 +11,12 @@ A customizable theme that makes minor changes to several items throughout the ga
   - Both moderator and admin icons have a slight glow
 - Added text before the icon in the header explaining what your current action is
 - Prepended your HP/MP bars in the header with "Your Stats"
+- *Includes the Stylized Extension Manager*
 
 Also check out the Custom Styles > Add-Ons subfolder! (installed as separate extensions)
 
 ## Stylized Extension Manager
+- *You don't need this anymore if you are using Custom Styles*
 - Styles the buttons of the Extension Manager to match the game's theme
 - Makes active extensions more visible
 - Tweaks the textarea resizing to only allow vertical resizing
