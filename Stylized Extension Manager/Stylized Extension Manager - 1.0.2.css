@@ -3,7 +3,7 @@
 // @description  Style the Steam extension manager to match the game's theme
 // @match        https://www.milkywayidle.com/*
 // @match        https://test.milkywayidle.com/*
-// @version      1.0.2.1
+// @version      1.0.2.2
 // @author       AJman14
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=milkywayidle.com
 // @grant        none
@@ -49,6 +49,7 @@ document.head.insertAdjacentHTML("beforeend", `<style>
     border: 1px solid #000000;
     border-radius: 3px;
     padding: 0.3em 0.6em;
+    cursor: pointer;
 }
 /* Delete and Reload button */
 #steam-milkywayidle-scripts-list > div > button{
