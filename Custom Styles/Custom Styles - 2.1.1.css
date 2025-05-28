@@ -3,7 +3,7 @@
 // @description  A customizable theme with several QoL tweaks
 // @match        https://www.milkywayidle.com/*
 // @match        https://test.milkywayidle.com/*
-// @version      2.1.1
+// @version      2.1.1.1
 // @author       AJman14
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=milkywayidle.com
 // @grant        none
@@ -17,6 +17,7 @@ document.head.insertAdjacentHTML("beforeend", `<style>
     --color-primary-rgb: 64, 149, 48;
     --color-primary-light: #46bd2f;
     --color-primary-hover: var(--color-primary-light);
+    --color-primary-hover-rgb: var(--color-primary-light-rgb);
     --color-primary-alt: #195e0c;
     --color-primary-alt-rgb: 25, 94, 12;
     --color-primary-dark: #1d4616;
@@ -25,6 +26,7 @@ document.head.insertAdjacentHTML("beforeend", `<style>
     --color-secondary: #a272e4;
     --color-secondary-light: #ac8fd4;
     --color-secondary-hover: var(--color-secondary-light);
+    --color-secondary-hover-rgb: var(--color-secondary-light-rgb);
     --color-success: var(--color-alert, #cd7d06);
     --color-success-hover: var(--color-alert-hover, #ff9900);
     --color-warning: #a00a0a;
@@ -38,8 +40,10 @@ document.head.insertAdjacentHTML("beforeend", `<style>
     --color-market-sell-hover: var(--color-success-hover);
     --color-market-buy: var(--color-primary);
     --color-market-buy-hover: var(--color-primary-light);
+    --color-market-buy-hover-rgb: var(--color-primary-light-rgb);
     --color-glow: var(--color-secondary);
     --color-empty-hover: var(--color-empty-light);
+    --color-empty-hover-rgb: var(--color-empty-light-rgb);
 }
 
 /* Script Manager */
@@ -542,6 +546,16 @@ svg:has(use[href*="#info"]) {
     border-color: var(--color-warning);
     background-color: var(--color-warning);
     color: #fff;
+}
+
+/* Popups (Item Dictionary, Profile,...) */
+[class*=Modal_modalContainer] [class*=Modal_modal__],
+[class*=SharableProfile_modalContainer] [class*=SharableProfile_modal__],
+[class*=OfflineProgressModal_modalContainer] [class*=OfflineProgressModal_modal__],
+[class*=QuestModal_questModalContainer] [class*=QuestModal_questModal] [class*=QuestModal_questModalContent],
+[class*=DialogModal_dialogModal] [class*=MuiDialog-paper]{
+    border-color: var(--color-primary) !important;
+    box-shadow: 0px 0px 8px 2px rgba(var(--color-primary-rgb));
 }
 
 
