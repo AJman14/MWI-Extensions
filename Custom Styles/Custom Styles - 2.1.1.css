@@ -357,14 +357,14 @@ svg:has(> use[href*=".svg#admin"]) {
 [class*=Header_actionInfo] [class*=ProgressBar_progressBar] [class*=ProgressBar_text]{
     gap: 0;
     text-shadow:
-        -1px -1px 0px rgba(var(--color-empty-rgb),0.5),
-        -1px 1px 0px rgba(var(--color-empty-rgb),0.5),
-        1px 1px 0px rgba(var(--color-empty-rgb),0.5),
-        1px -1px 0px rgba(var(--color-empty-rgb),0.5),
-        0px 1px 0px rgba(var(--color-empty-rgb),0.5),
-        0px -1px 0px rgba(var(--color-empty-rgb),0.5),
-        1px 0px 0px rgba(var(--color-empty-rgb),0.5),
-        -1px 0px 0px rgba(var(--color-empty-rgb),0.5)
+        -1px -1px 0px rgba(var(--color-empty-rgb),0.4),
+        -1px 1px 0px rgba(var(--color-empty-rgb),0.4),
+        1px 1px 0px rgba(var(--color-empty-rgb),0.4),
+        1px -1px 0px rgba(var(--color-empty-rgb),0.4),
+        0px 1px 0px rgba(var(--color-empty-rgb),0.4),
+        0px -1px 0px rgba(var(--color-empty-rgb),0.4),
+        1px 0px 0px rgba(var(--color-empty-rgb),0.4),
+        -1px 0px 0px rgba(var(--color-empty-rgb),0.4)
     ;
 }
 [class*=Header_actionInfo] [class*=ProgressBar_progressBar] [class*=ProgressBar_text] > span{
