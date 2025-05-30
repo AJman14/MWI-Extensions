@@ -3,7 +3,7 @@
 // @description  A customizable theme with several QoL tweaks
 // @match        https://www.milkywayidle.com/*
 // @match        https://test.milkywayidle.com/*
-// @version      2.1.1.1
+// @version      2.1.1.2
 // @author       AJman14
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=milkywayidle.com
 // @grant        none
@@ -353,12 +353,21 @@ svg:has(> use[href*=".svg#admin"]) {
     --color-empty: transparent;
 }
 
-/* Current Task duration text */
+/* Current skill duration text */
 [class*=Header_actionInfo] [class*=ProgressBar_progressBar] [class*=ProgressBar_text]{
     gap: 0;
+    text-shadow:
+        -1px -1px 0px rgba(var(--color-empty-rgb),0.5),
+        -1px 1px 0px rgba(var(--color-empty-rgb),0.5),
+        1px 1px 0px rgba(var(--color-empty-rgb),0.5),
+        1px -1px 0px rgba(var(--color-empty-rgb),0.5),
+        0px 1px 0px rgba(var(--color-empty-rgb),0.5),
+        0px -1px 0px rgba(var(--color-empty-rgb),0.5),
+        1px 0px 0px rgba(var(--color-empty-rgb),0.5),
+        -1px 0px 0px rgba(var(--color-empty-rgb),0.5)
+    ;
 }
 [class*=Header_actionInfo] [class*=ProgressBar_progressBar] [class*=ProgressBar_text] > span{
-    background: rgba(var(--color-empty-rgb), 0.66);
     padding: 0px 2px;
 }
 
@@ -661,6 +670,47 @@ const clrDefaults = {
     },
 }
 
+// Set Theme 0 as the result of merging clrDefaults with itself... clrTheme0 = clrDefaults doesn't work
+const clrTheme0 = Object.assign({}, clrDefaults, clrDefaults);
+
+// Setup the colors for Theme 1
+const clrSet1 = {
+    Primary: {
+        Base: '#313d96',
+        Light: '#2f3fbc',
+        Alt: '#0c125f',
+        Dark: '#161846',
+        Darker: '#0c0d22',
+    },
+    Health: {
+        Base: '#529d43',
+    },
+    Mana: {
+        Base: '#b662ea',
+    },
+    Empty: {
+        Base: '#ccccea',
+        Light: '#e5e6f5',
+    },
+    Background: {
+        Game: '#060919',
+    },
+}
+// Merge clrSet1 with clrDefaults to create clrTheme1
+const clrTheme1 = Object.assign({}, clrDefaults, clrSet1);
+
+// Theme 2 only changes a few colors, leaving the others as you had them (not merging with clrDefaults)
+const clrTheme2 = {
+    Alert: {
+        Base: '#7206cb',
+        Hover: '#9900ff',
+    },
+    Warning: {
+        Base: '#9e0a92',
+        Hover: '#cc14b4',
+    },
+}
+
 var settingsPage = "[class*='SettingsPanel_gameTab'] [class*='SettingsPanel_infoGrid']";
 var elExists = document.querySelector(settingsPage);
 
@@ -688,6 +738,7 @@ var insertedCSS = '';
 /* Init the CSS */
 document.head.insertAdjacentHTML("beforeend", `<style id="csColors"></style>`)
 
+/* Print the color pickers (Only hex - not their RGB counterparts) */
 for (const color in clrDefaults) {
     const colors = clrDefaults[color];
     insertedHTML += `
@@ -709,33 +760,64 @@ for (const color in clrDefaults) {
     insertedHTML += `</div>`;
 }
 
-function setColors(){
+/* Load values from storage (or defaults if they don't exist) */
+function updateInputs(){
+    document.querySelectorAll('.csClrPickers input[type="color"]').forEach(function(el) {
+        if (localStorage.getItem(el.id)){
+            el.value = localStorage.getItem(el.id);
+        } else {
+            resetInputValue(el);
+            //console.log('Using default color for ' + el.id);
+        }
+    });
+}
+
+function setColors(colorsObject){
+    let defaultColors = false;
     insertedCSS = ':root {';
-    for (const color in clrDefaults) {
-        const colors = clrDefaults[color];
+    for (const color in colorsObject) {
+        const colors = colorsObject[color];
         for (const subColor in colors) {
             const subColorValue = colors[subColor];
             //console.log(subColor + ': ' + subColorValue);
             /* Update the RGB colors - strip RGB from existing subColor then add again so we don't get -RGB-RGB doubles */
-            colors[subColor.replace('-RGB', '')+"-RGB"] = hexToRGB(subColorValue);
+            colors[subColor.replace('-RGB', '')+'-RGB'] = hexToRGB(subColorValue);
             /* Check if local storage has anything, else use the defaults */
             let elementID = 'csClr'+color+((subColor == 'Base') ? '' : (subColor == 'Base-RGB' ? '-RGB' : subColor))
             //console.log('Looking for saved color: '+elementID);
-            if (localStorage.getItem(elementID)){
-                insertedCSS += '--color-'+color.toLowerCase()+((subColor == 'Base') ? '' : (subColor == 'Base-RGB' ? '-rgb' : '-'+subColor.toLowerCase())) + ':' + localStorage.getItem(elementID) + ';';
-                //console.log('Saved color found: '+localStorage.getItem(elementID));
+            if (colorsObject == clrDefaults) {
+                if (localStorage.getItem(elementID)){
+                    // Use custom set color
+                    insertedCSS += '--color-'+color.toLowerCase()+((subColor == 'Base') ? '' : (subColor == 'Base-RGB' ? '-rgb' : '-'+subColor.toLowerCase())) + ':' + localStorage.getItem(elementID) + ';';
+                    //console.log('Saved color found: '+localStorage.getItem(elementID));
+                } else {
+                    // Use fallback
+                    localStorage.setItem(elementID, subColorValue);
+                    insertedCSS += '--color-'+color.toLowerCase()+((subColor == 'Base') ? '' : (subColor == 'Base-RGB' ? '-rgb' : '-'+subColor.toLowerCase())) + ':' + subColorValue.toLowerCase() + ';';
+                    //console.log('Using the default: '+subColorValue);
+                }
+                defaultColors = true;
             } else {
+                // Use the theme color
                 localStorage.setItem(elementID, subColorValue);
-                insertedCSS += '--color-'+color.toLowerCase()+((subColor == 'Base') ? '' : (subColor == 'Base-RGB' ? '-rgb' : '-'+subColor.toLowerCase())) + ':' + subColorValue.toLowerCase() + ';';
-                //console.log('Saved color not found. Using default color: '+subColorValue);
+                localStorage.setItem(elementID+'-RGB', hexToRGB(subColorValue));
+                insertedCSS += '--color-'+color.toLowerCase()+((subColor == 'Base') ? '' : '-'+subColor.toLowerCase()) + ':' + subColorValue.toLowerCase() + ';';
+                insertedCSS += '--color-'+color.toLowerCase()+((subColor == 'Base') ? '-rgb' : '-'+subColor.toLowerCase()+'-rgb') + ':' + hexToRGB(subColorValue) + ';';
+                //console.log('Changing the theme. Setting to: '+subColorValue+' and RGB to: '+hexToRGB(subColorValue));
             }
         }
     }
     insertedCSS += '}';
     document.getElementById('csColors').innerHTML = insertedCSS;
-    //console.log(clrDefaults);
+    // After setting the theme colors, rerun to fill in the gaps with defaults - required for complete CSS setup
+    if (defaultColors == false){
+        setColors(clrDefaults);
+    }
+    updateInputs();
+    //console.log(colorsObject);
 }
-setColors()
+/* Load the saved colors (or fallback to defaults) */
+setColors(clrDefaults)
 
 /* Print the Color pickers and relevant functions for saving/resetting */
 function addColorPicker(selector){
@@ -828,21 +910,18 @@ function addColorPicker(selector){
     /* Insert the HTML */
     document.querySelector(selector).insertAdjacentHTML("afterbegin", addedHTML);
 
-    /* Load values from storage (or defaults if they don't exist) and watch for changes */
+    /* Update the input colors */
+    updateInputs()
+
+    /* Watch for changes */
     document.querySelectorAll('.csClrPickers input[type="color"]').forEach(function(el) {
-        if (localStorage.getItem(el.id)){
-            el.value = localStorage.getItem(el.id);
-        } else {
-            resetInputValue(el);
-            //console.log('Using default color for ' + el.id);
-        }
         /* Save changes */
         el.addEventListener('change', function(el) {
             localStorage.setItem(el.target.id, el.target.value);
             localStorage.setItem(el.target.id+'-RGB', hexToRGB(el.target.value));
-            setColors();
-            console.log('Saved ' + el.target.id + ' as ' + el.target.value);
-            console.log('Saved ' + el.target.id+'-RGB' + ' as ' + hexToRGB(el.target.value));
+            setColors(clrDefaults);
+            //console.log('Saved ' + el.target.id + ' as ' + el.target.value);
+            //console.log('Saved ' + el.target.id+'-RGB' + ' as ' + hexToRGB(el.target.value));
         });
         //console.log('Listening for changes to ' + el.id);
     });
@@ -854,7 +933,7 @@ function addColorPicker(selector){
             resetInputValue(el);
             localStorage.removeItem(el.id);
             localStorage.removeItem(el.id+'-RGB');
-            setColors()
+            setColors(clrDefaults)
             //console.log('Reset ' + el.id + ' to default');
             //console.log('Reset ' + el.id+'-RGB' + ' to default');
         });
@@ -884,3 +963,6 @@ function hexToRGB(h) {
 
     return +r + "," + +g + "," + +b;
 }
+
+/* Set to theme 1 */
+//setColors(clrTheme1)
