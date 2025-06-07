@@ -173,7 +173,7 @@ function printContent(selector){
 }
 
 function saveSettings(el){
-    console.log(character+el.id);
+    //console.log(character+el.id);
     if (el.checked){
         localStorage.setItem(character+el.id, 'checked');
         //console.log('Saving settings for ' + el.id + ' (checked)');
