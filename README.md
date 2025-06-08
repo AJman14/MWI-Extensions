@@ -6,6 +6,10 @@ To access your extensions: In the top-left of your game, click `Game` > `Manage 
 ## Custom Styles
 A customizable theme that makes minor changes to several items throughout the game. I think you'll find the QoL tweaks to be pretty nice. Try it out!
 - Set your own colors in `Settings` > `Game`
+  - Save and load your themes!
+    - **Load**: `Ctrl`+`#` (0-9)
+    - **Save**: `Ctrl`+`Shift`+`#`
+    - **Reset**: `Ctrl`+`Shift`+`Alt`+`#`
 - Skilling/combat items are more condensed
 - Moderator icons are now golden
   - Both moderator and admin icons have a slight glow
