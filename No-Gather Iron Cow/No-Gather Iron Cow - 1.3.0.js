@@ -127,7 +127,7 @@ document.head.insertAdjacentHTML("beforeend", `<style type="text/css">
 
 function saveSettings(ngicOption, mode = 'toggle'){
     let checkbox = document.getElementById(ngicOption);
-    if ((mode == 'toggle' && localStorage.getItem(character+ngicOption) != 'checked') || (mode == 'init' && localStorage.getItem(character+ngicOption) == 'checked')){
+    if ((mode == 'toggle' && localStorage.getItem(character+ngicOption) != 'checked') || (mode == 'init' && localStorage.getItem(character+ngicOption) == 'checked') || (mode == 'init' && ngicOption == 'coneToggle' && localStorage.getItem(character+ngicOption) == null)){
         localStorage.setItem(character+ngicOption, 'checked');
         document.querySelector(ngicGame).classList.add(ngicOption);
         if (checkbox != null){
@@ -172,7 +172,6 @@ const ngicHeaderObserver = new MutationObserver(mutations => {
     if (document.querySelector(ngicHeader)) {
         if (!existsHeader) {
             //console.log("Header detected.");
-            document.querySelector(ngicGame).classList.add('coneToggle');
             character = document.querySelector('[class*=Header_header__] [class*=CharacterName_characterName] [class*=CharacterName_name] > span').textContent + '-';
             saveSettings('ngicToggle', 'init');
             saveSettings('nticToggle', 'init');
