@@ -28,7 +28,7 @@ Also check out the Custom Styles > Add-Ons subfolder! (installed as separate ext
 - Allows scrolling if your extension list gets too long
 
 ## No-Gather Iron Cow
-Adds several checkbox toggles directly below the Settings button to disable the clickability of navigation items:
+Adds several checkbox toggles directly below the Settings button to disable the clickability of navigation items.
 **Toggle with `Ctrl + Alt + I`**
 - Disable gathering items (Milking, Foraging, and Woodcutting)
   - Disable Tasks and the Tutorial glow if you're a No-Tutorial Icon Cow
