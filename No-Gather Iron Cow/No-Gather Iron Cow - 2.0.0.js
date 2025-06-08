@@ -3,7 +3,7 @@
 // @description  Disable the gathering navigation menu links
 // @match        https://www.milkywayidle.com/*
 // @match        https://test.milkywayidle.com/*
-// @version      1.3.0
+// @version      2.0.0
 // @author       AJman14
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=milkywayidle.com
 // @grant        none
