@@ -21,7 +21,7 @@ A customizable theme that makes some nice changes throughout the game. I think y
 Also check out the Custom Styles > Add-Ons subfolder! (installed as separate extensions)
 
 ## Stylized Extension Manager
-- *You don't need this anymore if you are using Custom Styles*
+- *You don't need this if you are using Custom Styles*
 - Styles the buttons of the Extension Manager to match the game's theme
 - Makes active extensions more visible
 - Tweaks the textarea resizing to only allow vertical resizing
@@ -33,7 +33,7 @@ Adds several checkbox toggles directly below the Settings button to disable the 
   - Disable Tasks and the Tutorial glow if you're a No-Tutorial Icon Cow
   - Combat-Only mode (Disables Cheesesmithing, Crafting, Tailoring, Cooking, Brewing, and Alchemy)
     - Combat-Only enables an additional toggle for Enhancing
-
+- Settings are saved per-character
 **Toggle with `Ctrl + Alt + I`**
 
 ---
