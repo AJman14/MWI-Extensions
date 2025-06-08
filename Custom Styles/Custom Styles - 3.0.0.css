@@ -817,12 +817,12 @@ const clrTheme4 = Object.assign({}, clrDefaults, {
         "Darker": "#1e2400",
     },
     "Alert": {
-        "Base": "#bd6500",
-        "Hover": "#d17000",
+        "Base": "#bd8100",
+        "Hover": "#d18400",
     },
     "Warning": {
-        "Base": "#90220e",
-        "Hover": "#ab2c0d",
+        "Base": "#b04207",
+        "Hover": "#c64710",
     },
     "Secondary": {
         "Base": "#1e8aae",
