@@ -28,14 +28,14 @@ Also check out the Custom Styles > Add-Ons subfolder! (installed as separate ext
 - Allows scrolling if your extension list gets too long
 
 ## No-Gather Iron Cow
-Adds several checkbox toggles directly below the Settings button to disable the clickability of navigation items.
+Adds several checkbox toggles in your game settings to disable the clickability of navigation items.
 - Disable gathering items (Milking, Foraging, and Woodcutting)
   - Disable Tasks and the Tutorial glow if you're a No-Tutorial Icon Cow
   - Combat-Only mode (Disables Cheesesmithing, Crafting, Tailoring, Cooking, Brewing, and Alchemy)
     - Combat-Only enables an additional toggle for Enhancing
-- Settings are saved per-character
 
-**Toggle**: `Ctrl` + `Alt` + `I`
+Settings are saved per-character in `Settings` > `Game`
+Optional toggle shortcut: `Ctrl` + `Alt` + `I`
 
 ---
 
