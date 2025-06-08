@@ -4,12 +4,13 @@ Go to the extension you want, copy the entire file contents into your Steam Exte
 To access your extensions: In the top-left of your game, click `Game` > `Manage Extensions`.
 
 ## Custom Styles
-A customizable theme that makes minor changes to several items throughout the game. I think you'll find the QoL tweaks to be pretty nice. Try it out!
+A customizable theme that makes some nice changes throughout the game. I think you'll find the QoL tweaks to be pretty nice. Try it out!
 - Set your own colors in `Settings` > `Game`
   - Save and load your themes!
     - **Load**: `Ctrl`+`#` (0-9)
     - **Save**: `Ctrl`+`Shift`+`#`
     - **Reset**: `Ctrl`+`Shift`+`Alt`+`#`
+- Right-click a color picker to copy the current color to your clipboard
 - Skilling/combat items are more condensed
 - Moderator icons are now golden
   - Both moderator and admin icons have a slight glow
