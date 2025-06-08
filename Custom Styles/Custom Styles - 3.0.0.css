@@ -3,7 +3,7 @@
 // @description  A customizable theme with several QoL tweaks
 // @match        https://www.milkywayidle.com/*
 // @match        https://test.milkywayidle.com/*
-// @version      3.0.0
+// @version      3.0.0.1
 // @author       AJman14
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=milkywayidle.com
 // @grant        none
@@ -413,8 +413,9 @@ span[style*="color: var(--color-space-300);"] {
     color: var(--color-primary-light);
 }
 
-/* Sidebar Tea skill bonus, Loadout missing item */
+/* Sidebar Tea skill bonus, Item enhancement level, Loadout missing item */
 [class*=NavigationBar_level] [class*=NavigationBar_boost],
+[class*=Item_itemContainer] [class*=Item_item] [class*=Item_enhancementLevel],
 [class*=LoadoutsPanel_missing]{
     color: var(--color-success-hover) !important;
 }
@@ -1158,49 +1159,50 @@ function addColorPicker(selector){
     addedHTML = `
         <div class="`+labelClass+`">Theme Colors:</div>
         <div class="`+valueClass+` csClrPickers">
-        ` + insertedHTML + `
-        <style type="text/css">
-            /* Color Picker Styles */
-            .csClrPickers{
-                flex-direction: row;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: flex-start;
-                max-width: 23em;
-            }
-            .csClrPicker{
-                min-width: 0;
-                max-width: 320px;
-                overflow-y: auto;
-                border-radius: 4px;
-                padding: 8px;
-                background-color: var(--color-midnight-700);
-                display: flex;
-                flex-wrap: wrap;
-                gap: 12px 6px;
-                align-items: center;
-                justify-content: flex-start;
-            }
-            .csClr{
-                width: 7ch;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .csClr > *{
-                display: block;
-                width: 100%;
-            }
-            .csClr label div{
-                line-height: 1;
-                font-size: 0.85em;
-            }
-            .csClr input[type="color"]{
-                margin: 6px 0;
-                width: 6ch;
-            }
-        </style>
+            ` + insertedHTML + `
+            <style type="text/css">
+                /* Color Picker Styles */
+                .csClrPickers{
+                    flex-direction: row;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: flex-start;
+                    max-width: 23em;
+                }
+                .csClrPicker{
+                    min-width: 0;
+                    max-width: 320px;
+                    overflow-y: auto;
+                    border-radius: 4px;
+                    padding: 8px;
+                    background-color: var(--color-midnight-700);
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 12px 6px;
+                    align-items: center;
+                    justify-content: flex-start;
+                }
+                .csClr{
+                    width: 7ch;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                }
+                .csClr > *{
+                    display: block;
+                    width: 100%;
+                }
+                .csClr label div{
+                    line-height: 1;
+                    font-size: 0.85em;
+                }
+                .csClr input[type="color"]{
+                    margin: 6px 0;
+                    width: 6ch;
+                }
+            </style>
+        </div>
     `;
 
     /* Insert the HTML */
