@@ -17,8 +17,6 @@ var ngicSettings = "[class*='SettingsPanel_gameTab'] [class*='SettingsPanel_info
 var existsSettings = document.querySelector(ngicSettings);
 var character = '';
 
-document.querySelector(ngicGame).classList.add('coneToggle');
-
 let ngicActive = ".ngicToggle[class*=GamePage_gamePage__]";
 let link = "[class*=NavigationBar_navigationLink__]";
 let ngicItems = '[href*=".svg#milking"], [href*=".svg#foraging"], [href*=".svg#woodcutting"]';
@@ -174,6 +172,7 @@ const ngicHeaderObserver = new MutationObserver(mutations => {
     if (document.querySelector(ngicHeader)) {
         if (!existsHeader) {
             //console.log("Header detected.");
+            document.querySelector(ngicGame).classList.add('coneToggle');
             character = document.querySelector('[class*=Header_header__] [class*=CharacterName_characterName] [class*=CharacterName_name] > span').textContent + '-';
             saveSettings('ngicToggle', 'init');
             saveSettings('nticToggle', 'init');
