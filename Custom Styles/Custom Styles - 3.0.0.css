@@ -3,7 +3,7 @@
 // @description  A customizable theme with several QoL tweaks
 // @match        https://www.milkywayidle.com/*
 // @match        https://test.milkywayidle.com/*
-// @version      3.0.0.1
+// @version      3.0.0.2
 // @author       AJman14
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=milkywayidle.com
 // @grant        none
@@ -135,12 +135,17 @@ document.head.insertAdjacentHTML("beforeend", `<style>
 [class*=Chat_tipMessage] a{
     color: var(--color-primary-light) !important;
 }
+/* Tasks in the header */
+[class*=Header_task]{
+    box-shadow: 0px 0px 5px 0px var(--color-primary) !important;
+    border-color: var(--color-primary-light) !important;
+}
 /* Tutorial tasks */
 [class*=Header_task][class*=Header_new]{
-    box-shadow: 0 0 2px 4px var(--color-secondary) !important;
+    box-shadow: 0 0 5px 2px var(--color-secondary) !important;
 }
 [class*=Header_task][class*=Header_completed]{
-    box-shadow: 0 0 2px 4px var(--color-primary-light) !important;
+    box-shadow: 0 0 5px 2px var(--color-primary-light) !important;
 }
 
 /* News/Patch/Guide headings */
@@ -438,6 +443,9 @@ span[style*="color: var(--color-space-300);"] {
 [class*=TasksPanel_taskList]{
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
 }
+[class*=RandomTask_rerollOptionsContainer] [class*=RandomTask_buttonContainer] {
+    width: auto !important;
+}
 /* All tasks - Purple, Unread, Active */
 [class*=TasksPanel_taskList] > div{
     min-width: 250px !important;
@@ -533,11 +541,12 @@ svg:has(use[href*="#info"]) {
 }
 /* Ready button checkmark */
 [class*=Party_buttonsContainer] svg:has(use[href*="#checkbox_checked"]){
-    filter: invert(1) hue-rotate(121deg) brightness(1.3) saturate(0.8);
+    /*filter: invert(1) hue-rotate(121deg) brightness(1.3) saturate(0.8);*//* Changed for other theme colors */
+    filter: saturate(0) contrast(4);
 }
-[class*=Party_buttonsContainer] [class*=Button_button]:hover svg:has(use[href*="#checkbox_checked"]){
+/*[class*=Party_buttonsContainer] [class*=Button_button]:hover svg:has(use[href*="#checkbox_checked"]){
     filter: invert(1) hue-rotate(121deg) brightness(1.65) saturate(0.8);
-}
+}*/
 /* Dropdowns (Loadout, Zone select,...) */
 .MuiPaper-root {
     background: rgba(var(--color-primary-darker-rgb), 0.95) !important;
