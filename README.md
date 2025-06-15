@@ -28,7 +28,7 @@ Also check out the Custom Styles > Add-Ons subfolder! (installed as separate ext
 - Allows scrolling if your extension list gets too long
 
 ## No-Gather Iron Cow
-Adds several checkbox toggles in your game settings to disable the clickability of navigation items.
+Adds several checkbox toggles in your game settings to disable the clickability of navigation items. It also disables the skill panel in case you get into one of them through Tasks, or load into an idle character which goes into Milking.
 
 Settings are saved per-character in `Settings` > `Game`
 - Disable gathering items (Milking, Foraging, and Woodcutting)
